@@ -21,5 +21,7 @@ public class IMC {
         System.out.println("For " + weight
                             + " kg and " + height
                             + " m, the IMC is " + imc);
+
+        scanner.close();
     }
 }
