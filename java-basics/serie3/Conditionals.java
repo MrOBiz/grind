@@ -7,13 +7,16 @@ public class Conditionals {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter a number: ");
         int num = sc.nextInt();
+        int rest = num % 2;
 
         if(num > 0){
-            System.out.print("Positive number");
-            num % 2 == 0 ? System.out.println("EVEN") : System.out.println("ODD");
+            System.out.print("Positive number ");
+            String parity = (rest == 0) ? "EVEN" : "ODD";
+            System.out.println(parity);
         }else if(num < 0){
-            System.out.println("Negative number");
-            num % 2 == 0 ? System.out.println("EVEN") : System.out.println("ODD");
+            System.out.print("Negative number ");
+            String parity = (rest == 0) ? "EVEN" : "ODD";
+            System.out.println(parity);
         }else if(num == 0){
             System.out.println("Number is zero (and even)");
         }
