@@ -18,10 +18,12 @@ public class Eqthird {
 
         double q = (3 * b - a * a) / 9;
         double r = (9 * a * b - 27 * c - 2 * a * a * a) / 54;
-        double d = q * q * q + r * r * r;
+        double d = q * q * q + r * r;
 
         if (d < 0) {
-            double theta = Math.acos(r / Math.sqrt((-q) * (-q) * (-q)));
+            double arg = r / Math.sqrt((-q) * (-q) * (-q));
+            arg = Math.max(-1.0, Math.min(1.0, arg));
+            double theta = Math.acos(arg);
 
             double zOne = 2 * Math.sqrt(-q) * Math.cos(theta / 3) - (a / 3);
             double zTwo = 2 * Math.sqrt(-q) * Math.cos((theta + 2 * Math.PI) / 3) - (a / 3);
@@ -31,8 +33,8 @@ public class Eqthird {
                     + " " + zTwo + " "
                     + zThree);
         } else {
-            double s = Math.pow(r + Math.sqrt(d), 1.0 / 3.0);
-            double t = Math.pow(r - Math.sqrt(d), 1.0 / 3.0);
+            double s = Math.cbrt(r + Math.sqrt(d));
+            double t = Math.cbrt(r - Math.sqrt(d));
 
             if (d == 0 && (s + t) != 0) {
                 double zOne = s + t - (a / 3);
