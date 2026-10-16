@@ -8,10 +8,12 @@ public class Skydiver {
         Scanner sc = new Scanner(System.in);
 
         final double G = 9.81;
+        final double SPEED_OF_SOUND = 343;
         double v0 = 0.0, t0 = 0.0;
         double speed = v0, acceleration = G, t=t0;
         double altitude;
         double surface = 2.0;
+
 
         double mass = 80.0;
         do {
@@ -36,6 +38,14 @@ public class Skydiver {
             speed = (G/s)*(1-q)+v0*q;
             altitude = h0 -(G/s)*(t-t0)-((v0-G/s)/s)*(1-q);
             acceleration = G -s*speed;
+
+            if(speed > SPEED_OF_SOUND && speed < 344){
+                System.out.println("## THE SKYDIVER MOVES FASTER THAN SOUND");
+            }
+
+            if(acceleration > 0.48 && acceleration < 0.5){
+                System.out.println("## THE SKYDIVER REACHED MAX ACCELERATION");
+            }
 
             System.out.printf("%.0f, %.4f, %.4f, %.5f\n",
                     t, altitude, speed, acceleration);
