@@ -42,9 +42,19 @@ public class Bikes {
             }else if((start >= SOS && start <= EOM)&&(end >= EOA && end <= EOD)){
                 timeReducedFare += (EOM - start) + (end - EOA);
                 timeMaxFare += (EOA - EOM);
+            }else if((start >= EOM && start <= EOA)&&(end >= EOA && end <= EOD)){
+                timeMaxFare += (EOA - start);
+                timeReducedFare += (end - EOA);
+            }else if((start >= SOS && start <= EOM)&&(end >= EOM && end <= EOA)){
+            timeMaxFare += (end - EOM);
+            timeReducedFare += (EOM - start);
             }
 
             System.out.println("You rented a bike for: " + (timeMaxFare + timeReducedFare) + " hour(s)");
+
+            System.out.println("Full fare: " + timeMaxFare + " hour(s)"
+                                + " -- Half fare: " + timeReducedFare + " hour(s)");
+
             System.out.print("Total: " + (timeMaxFare*RATETWO + timeReducedFare*RATEONE));
             System.out.println("$");
         }
