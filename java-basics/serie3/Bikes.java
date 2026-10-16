@@ -15,9 +15,13 @@ public class Bikes {
          *******************************************/
         final int RATEONE = 1;
         final int RATETWO = 2;
+        final int SOS = 0;
+        final int EOM = 7;
+        final int EOA = 17;
+        final int EOD = 24;
 
-        while(start > end || start < 0 || end < 0
-                || end > 24 || start > 24){
+        while(start > end || start < SOS || end < SOS
+                || end > EOD || start > EOD){
             System.out.print("Enter VALID starting hour : ");
             start = clavier.nextInt();
             System.out.print("Enter VALID ending hour : ");
@@ -31,15 +35,18 @@ public class Bikes {
             int timeReducedFare = 0;
             int timeMaxFare = 0;
 
-            if((start >= 0 && end <= 7)||(start >= 17 && end <= 24)){
+            if((start >= SOS && end <= EOM)||(start >= EOA && end <= EOD)){
                 timeReducedFare += (end - start);
-            }else if((start >= 7 && end <= 17)){
+            }else if((start >= EOM && end <= EOA)){
                 timeMaxFare += (end - start);
+            }else if((start >= SOS && start <= EOM)&&(end >= EOA && end <= EOD)){
+                timeReducedFare += (EOM - start) + (end - EOA);
+                timeMaxFare += (EOA - EOM);
             }
 
-            System.out.println("You rented a bike for: ");
-            System.out.print("Total: ");
-            System.out.println(" $");
+            System.out.println("You rented a bike for: " + (timeMaxFare + timeReducedFare) + " hour(s)");
+            System.out.print("Total: " + (timeMaxFare*RATETWO + timeReducedFare*RATEONE));
+            System.out.println("$");
         }
 
         /*******************************************
