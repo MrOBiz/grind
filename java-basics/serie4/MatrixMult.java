@@ -68,7 +68,13 @@ public class MatrixMult {
             }
 
             System.out.println("Multiplication results: ");
-            //for(int i = 0; i)
+            for(int i = 0; i<col1; i++){
+                for(int j = 0; j<row2; j++){
+                    double t = mat1[i][j] * mat2[j][i];
+                    System.out.print(t + " ");
+                }
+                System.out.println();
+            }
 
         }else{
             System.out.println("Columns of M1 != rows M2");
