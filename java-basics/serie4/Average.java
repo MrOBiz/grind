@@ -19,5 +19,17 @@ public class Average {
             notes[i] = sc.nextDouble();
             sumOfNotes += notes[i];
         }
+
+        average = sumOfNotes/numOfStudents;
+        System.out.println("Class average is: "+average);
+
+        int t = 1;
+        for(double val : notes){
+            double diff = Math.abs(val - average);
+            System.out.println("Student's "+ t +" average is: "
+                                + val + " #Deviation from the average: "
+                                + diff);
+            t++;
+        }
     }
 }
