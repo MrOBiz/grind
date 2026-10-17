@@ -12,10 +12,28 @@ public class Scalar {
 
         Scanner sc = new Scanner(System.in);
         do {
-            System.out.println("Enter vector size: ");
+            System.out.print("Enter vector size: ");
             n = sc.nextInt();
         }while(n < 1 || n > nMax);
 
+        for(int i = 0; i < n; i++){
+            System.out.print("Enter v1 component " + i + " : ");
+            v1[i] = sc.nextInt();
+        }
+
+        for(int i = 0; i < n; i++){
+            System.out.print("Enter v2 component " + i + " : ");
+            v2[i] = sc.nextInt();
+        }
+
         sc.close();
+
+        double product = 0.0;
+        for(int i = 0; i < n; i++){
+            double t = v1[i]*v2[i];
+            product += t;
+        }
+
+        System.out.println("The scalar product of vectors is: "+product);
     }
 }
