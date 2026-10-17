@@ -50,9 +50,29 @@ public class MatrixMult {
             }
         }
 
+        if(col1==row2){
+            System.out.println("Here's M1: ");
+            for(int i=0;i<row1;i++){
+                for(int j=0;j<col1;j++){
+                    System.out.println("M1" + (i+1) + (j+1)
+                                    + " = " + mat1[i][j]);
+                }
+            }
 
+            System.out.println("Here's M2: ");
+            for(int i=0;i<row1;i++){
+                for(int j=0;j<col1;j++){
+                    System.out.println("M2" + (i+1) + (j+1)
+                            + " = " + mat2[i][j]);
+                }
+            }
 
+            System.out.println("Multiplication results: ");
+            //for(int i = 0; i)
 
+        }else{
+            System.out.println("Columns of M1 != rows M2");
+        }
 
     }
 }
