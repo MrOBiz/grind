@@ -60,18 +60,18 @@ public class MatrixMult {
             }
 
             System.out.println("Here's M2: ");
-            for(int i=0;i<row1;i++){
-                for(int j=0;j<col1;j++){
+            for(int i=0;i<row2;i++){
+                for(int j=0;j<col2;j++){
                     System.out.println("M2" + (i+1) + (j+1)
                             + " = " + mat2[i][j]);
                 }
             }
 
             System.out.println("Multiplication results: ");
-            for(int i = 0; i<col1; i++){
-                for(int j = 0; j<row2; j++){
-                    double t = mat1[i][j] * mat2[j][i];
-                    System.out.print(t + " ");
+            for(int i = 0 ; i<col1; i++){
+                for(int j  = 0; j<row2; j++){
+                    System.out.print("M3"  + (i+1) + (j+1) +" = "
+                                     + mat1[i][j]*mat2[j][i] );
                 }
                 System.out.println();
             }
