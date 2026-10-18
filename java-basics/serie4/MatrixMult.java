@@ -68,12 +68,14 @@ public class MatrixMult {
             }
 
             System.out.println("Multiplication results: ");
-            for(int i = 0 ; i<col1; i++){
-                for(int j  = 0; j<row2; j++){
-                    System.out.print("M3"  + (i+1) + (j+1) +" = "
-                                     + mat1[i][j]*mat2[j][i] );
+            double t = 0.0;
+            for(int i = 0 ; i<row1; i++){
+                for(int j  = 0; j<col1; j++){
+                    t  += mat1[i][j]*mat2[j][i];
                 }
+                System.out.print(t + " ");
                 System.out.println();
+                t = 0.0;
             }
 
         }else{
