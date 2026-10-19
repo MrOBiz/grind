@@ -16,8 +16,15 @@ public class Pascal {
         int[][] triangle = new int[triangleDepth][];
 
         for(int i = 0; i < triangleDepth; i++){
-            for(int j = 0; j < i+2; j++){
-                triangle[i][j] = ;
+            for(int j = 0; j < i+1; j++){
+                triangle[i] = new int[i+1];
+
+                if(j == 0 || j == i){
+                    triangle[i][j] = 1;
+                }else{
+                    triangle[i][j] = triangle[i - 1][j -1]
+                                    + triangle[i - 1][j];
+                }
             }
         }
 
