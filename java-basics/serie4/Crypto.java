@@ -28,9 +28,23 @@ public class Crypto {
             }
         }
 
+        for(int i = 0; i < aCoder.length(); i++){
+            if(aCoder.charAt(i) == ' '){
+                chaineCodee += aCoder.charAt(i);
+            }else{
+                for(int j = 0; j < ALPHABET.length(); j++){
+                    if(aCoder.charAt(i) == ALPHABET.charAt(j)){
+                        if(j + OFFSET >= ALPHABET.length()){
+                            int pos = (j + OFFSET) - ALPHABET.length();
+                            chaineCodee += ALPHABET.charAt(pos);
+                        }else{
+                            chaineCodee += ALPHABET.charAt(j + OFFSET);
+                        }
+                    }
+                }
 
-
-
+            }
+        }
 
 
         System.out.format("Initial chain: '%s'\n", s);
