@@ -19,17 +19,24 @@ public class Crypto {
         // coded chain
         String chaineCodee = "";
 
-        /*******************************************
-         * Completez le programme a partir d'ici.
-         *******************************************/
+        for(int i = 0; i < s.length(); i++){
+            for(int j = 0; j < ALPHABET.length(); j++){
+                if(s.charAt(i) == ALPHABET.charAt(j) || s.charAt(i) == ' '){
+                    aCoder += s.charAt(i);
+                    break;
+                }
+            }
+        }
 
-        /*******************************************
-         * Ne rien modifier apres cette ligne.
-         *******************************************/
+
+
+
+
+
         System.out.format("Initial chain: '%s'\n", s);
 
         if (aCoder.isEmpty()) {
-            System.out.println("Coded chain is empty\n");
+            System.out.println("No chain to encode (empty)\n");
         } else {
             System.out.format("Chain to code is: '%s'\n", aCoder);
             System.out.format("Coded chain is: '%s'\n", chaineCodee);
