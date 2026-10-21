@@ -34,9 +34,10 @@ public class Closure {
                 {0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
         };
 
-        double side = 2.5;
+        double sideLength = 2.5;
         double tot;
 
+        //Format verification
         for(int i = 0; i<map.length; i++){
             for(int j = 0; j < map[0].length; j++){
                 if(map[i][j] != 0 && map[i][j] !=1){
@@ -52,20 +53,18 @@ public class Closure {
             }
         }
 
+        //Clear ponds
         for(int i = 0; i<map.length; i++){
             for(int j = 0; j < map[i].length; j++){
-                if(map[i][j] == 1){
-                    for(int k = j +1 ; k<map[i].length - j; k++){
-                        if(map[i][k] == 0){
-                            map[i][k] = 1;
-                        }else{
-                            break;
-                        }
-                    }
+                while(j+1 < map[0].length && map[i][j] == 1
+                        && map[i][j+1] == 0){
+                    map[i][j+1] = 1;
+                    j++;
                 }
             }
         }
 
+        //Print map
         for (int[] ints : map) {
             for (int j = 0; j < map[0].length; j++) {
                 System.out.print(ints[j]);
