@@ -46,6 +46,16 @@ public class Closure {
                     System.out.print("' found in position [" + i);
                     System.out.print("][" + j);
                     System.out.println("]");
+
+                    return;
+                }
+            }
+        }
+
+        for(int i = 0; i<map.length; i++){
+            for(int j = 0; j < map[i].length; j++){
+                if(map[i][j] == 0){
+
                 }
             }
         }
