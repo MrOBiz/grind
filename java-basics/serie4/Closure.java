@@ -2,7 +2,7 @@ package serie4;
 
 public class Closure {
     public static void main(String[] args) {
-        int[][] carte = {
+        int[][] map = {
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,0,0},
                 {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,0},
                 {0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
@@ -36,19 +36,28 @@ public class Closure {
 
         double side = 2.5;
         double tot;
-        int err;
 
-        System.out.print("The map doesn't have the right format :\nvalue '" + err);
-        System.out.print("' found in position [");
-        System.out.print("][");
-        System.out.println("]");
+        for(int i = 0; i<map.length; i++){
+            for(int j = 0; j < map[0].length; j++){
+                if(map[i][j] != 0 && map[i][j] !=1){
+
+                    int err = map[i][j];
+                    System.out.print("The map doesn't have the right format :\nvalue '" + err);
+                    System.out.print("' found in position [" + i);
+                    System.out.print("][" + j);
+                    System.out.println("]");
+                }
+            }
+        }
+
+
 
         System.out.println("The map doesn't have the right format :");
         System.out.print("external limit penetrates at position [");
         System.out.print("][");
         System.out.println("]");
 
-        System.out.print("You will need " + tot);
+        System.out.print("You will need ");
         System.out.println(" m of fence to enclose your land.");
 
     }
