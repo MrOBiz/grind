@@ -54,10 +54,23 @@ public class Closure {
 
         for(int i = 0; i<map.length; i++){
             for(int j = 0; j < map[i].length; j++){
-                if(map[i][j] == 0){
-
+                if(map[i][j] == 1){
+                    for(int k = j +1 ; k<map[i].length - j; k++){
+                        if(map[i][k] == 0){
+                            map[i][k] = 1;
+                        }else{
+                            break;
+                        }
+                    }
                 }
             }
+        }
+
+        for (int[] ints : map) {
+            for (int j = 0; j < map[0].length; j++) {
+                System.out.print(ints[j]);
+            }
+            System.out.println();
         }
 
 
