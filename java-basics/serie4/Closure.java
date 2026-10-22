@@ -55,19 +55,19 @@ public class Closure {
 
         //Clear ponds
         for(int i = 0; i<map.length; i++){
-            int beginning = 0, end = 0;
+            int beginning = -1, end = -1;
             for(int j = 0; j < map[i].length; j++){
                 if(j+1 < map[i].length && map[i][j] == 1
                     && map[i][j+1] == 0){
                     beginning = j+1;
                 }else if(j+1 < map[i].length && map[i][j] == 0
-                        && map[i][j+1] == 1 && beginning != 0){
+                        && map[i][j+1] == 1 && beginning != -1){
                     end = j+1;
                     for(int k = beginning; k < end; k++){
                         map[i][k] = 1;
                     }
-                    beginning = 0;
-                    end = 0;
+                    beginning = -1;
+                    end = -1;
                 }
             }
         }
@@ -80,6 +80,14 @@ public class Closure {
             System.out.println();
         }
 
+        //Fence length
+        for(int i = 0; i<map.length; i++){
+            for(int j = 0; j < map[0].length; j++){
+                if(map[i][j] == 1){
+
+                }
+            }
+        }
 
 
         System.out.println("The map doesn't have the right format :");
