@@ -35,7 +35,7 @@ public class Closure {
         };
 
         double sideLength = 2.5;
-        double tot;
+        double tot = 0;
 
         //Format verification
         for(int i = 0; i<map.length; i++){
@@ -80,11 +80,21 @@ public class Closure {
             System.out.println();
         }
 
-        //Fence length
-        for(int i = 0; i<map.length; i++){
+        //Fence length-->
+        for(int i = 0; i< map.length; i++){
             for(int j = 0; j < map[0].length; j++){
                 if(map[i][j] == 1){
+                    if(j+1<map[i].length && map[i][j+1] == 0){
+                        tot++;
+                    }else if(j+1 >= map[i].length){
+                        tot++;
+                    }
 
+                    if(j-1 >= 0 && map[i][j-1] == 0){
+                        tot++;
+                    }else if(j-1 < 0){
+                        tot++;
+                    }
                 }
             }
         }
@@ -95,7 +105,7 @@ public class Closure {
         System.out.print("][");
         System.out.println("]");
 
-        System.out.print("You will need ");
+        System.out.print("You will need " + tot*sideLength);
         System.out.println(" m of fence to enclose your land.");
 
     }
