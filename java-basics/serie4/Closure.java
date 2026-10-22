@@ -147,11 +147,64 @@ public class Closure {
             }
         }
 
+        System.out.print("You will need " + tot*sideLength);
+        System.out.println(" m of fence to enclose your land.");
+
+
 
         ArrayList<Integer> abscissas = new ArrayList<>();
         ArrayList<Integer> ordinates = new ArrayList<>();
 
-        int var = 1;
+        int component = 1;
+
+        for(int i = 0; i<mapTwo.length; i++){
+            for(int j = 0; j < mapTwo[i].length; j++){
+                if(mapTwo[i][j] == 0){
+                    component += 1;
+                    abscissas.add(i);
+                    ordinates.add(j);
+
+                    while(!abscissas.isEmpty() && !ordinates.isEmpty()){
+                        int x = abscissas.remove(0);
+                        int y = ordinates.remove(0);
+
+                        if(x >= 0 && x < mapTwo.length
+                            && y >= 0 && y < mapTwo[x].length
+                            && mapTwo[x][y] == 0){
+                            mapTwo[x][y] = component;
+
+                            if(x+1 < mapTwo.length && mapTwo[x+1][y] == 0) {
+                                abscissas.add(x + 1);
+                                ordinates.add(y);
+                            }
+
+                            if(x-1 >= 0 && mapTwo[x-1][y] == 0) {
+                                abscissas.add(x - 1);
+                                ordinates.add(y);
+                            }
+
+                            if(y+1 < mapTwo[x].length && mapTwo[x][y+1] == 0) {
+                                abscissas.add(x);
+                                ordinates.add(y + 1);
+                            }
+
+                            if(y-1 >= 0 && mapTwo[x][y-1] == 0) {
+                                abscissas.add(x);
+                                ordinates.add(y - 1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        //Print mapTwo
+        for (int[] ints : mapTwo) {
+            for (int j = 0; j < mapTwo[0].length; j++) {
+                System.out.print(ints[j]);
+            }
+            System.out.println();
+        }
 
 
 
@@ -166,9 +219,6 @@ public class Closure {
             System.out.print("][");
             System.out.println("]");
         }
-
-        System.out.print("You will need " + tot*sideLength);
-        System.out.println(" m of fence to enclose your land.");
 
     }
 }
