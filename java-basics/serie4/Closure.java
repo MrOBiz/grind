@@ -226,16 +226,65 @@ public class Closure {
             }
         }
 
+        //Find first and last one, then check if it is in boundaries
+        for(int i = 0; i<mapTwo.length; i++){
+            for(int j = 0; j < mapTwo[0].length; j++){
+                if(mapTwo[i][j] == 1){
+                    for(int k = mapTwo[0].length-1; k > j; k--){
+                        if(mapTwo[i][k] == 1){
+                            for(int l = j+1; l < k; l++){
+                                for (Integer boundary : boundaries) {
+                                    if (mapTwo[i][l] != 1
+                                            && mapTwo[i][l] == boundary) {
 
+                                        System.out.println("The map doesn't have the right format :");
+                                        System.out.print("external boundary penetrates at position [" + i);
+                                        System.out.print("][" + l);
+                                        System.out.println("]");
 
-
-
-        while(test) {
-            System.out.println("The map doesn't have the right format :");
-            System.out.print("external limit penetrates at position [");
-            System.out.print("][");
-            System.out.println("]");
+                                        return;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
+
+
+        //BETTER IMPLEMENTATION
+        /*for (int i = 0; i < mapTwo.length; i++) {
+            int firstOne = -1;
+            int lastOne = -1;
+
+            // Find the first and last 1 in this row
+            for (int j = 0; j < mapTwo[i].length; j++) {
+                if (mapTwo[i][j] == 1) {
+                    if (firstOne == -1) {
+                        firstOne = j;
+                    }
+                    lastOne = j;
+                }
+            }
+
+            // If the row contains no 1, skip it
+            if (firstOne == -1) {
+                continue;
+            }
+
+            // Check the cells strictly between the first and last 1
+            for (int l = firstOne + 1; l < lastOne; l++) {
+                if (boundaries.contains(mapTwo[i][l])) {
+                    System.out.println("The map doesn't have the right format :");
+                    System.out.println(
+                            "external boundary penetrates at position [" + i + "][" + l + "]"
+                    );
+                    return;
+                }
+            }
+        }*/
+
 
     }
 }
