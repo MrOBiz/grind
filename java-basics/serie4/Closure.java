@@ -1,5 +1,7 @@
 package serie4;
 
+import java.util.ArrayList;
+
 public class Closure {
     public static void main(String[] args) {
         int[][] map = {
@@ -69,6 +71,7 @@ public class Closure {
 
         double sideLength = 2.5;
         double tot = 0;
+        boolean test = false;
 
         //Format verification
         for(int i = 0; i<map.length; i++){
@@ -145,10 +148,24 @@ public class Closure {
         }
 
 
-        System.out.println("The map doesn't have the right format :");
-        System.out.print("external limit penetrates at position [");
-        System.out.print("][");
-        System.out.println("]");
+        ArrayList<Integer> abscissas = new ArrayList<>();
+        ArrayList<Integer> ordinates = new ArrayList<>();
+
+        int var = 1;
+
+
+
+
+
+
+
+
+        while(test) {
+            System.out.println("The map doesn't have the right format :");
+            System.out.print("external limit penetrates at position [");
+            System.out.print("][");
+            System.out.println("]");
+        }
 
         System.out.print("You will need " + tot*sideLength);
         System.out.println(" m of fence to enclose your land.");
