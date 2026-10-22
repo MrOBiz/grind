@@ -148,7 +148,7 @@ public class Closure {
         }
 
         System.out.print("You will need " + tot*sideLength);
-        System.out.println(" m of fence to enclose your land.");
+        System.out.println(" m of fence to enclose your land. \n \n \n");
 
 
 
@@ -206,8 +206,25 @@ public class Closure {
             System.out.println();
         }
 
+        ArrayList<Integer> boundaries = new ArrayList<>();
 
+        //First and last row scan
+        for(int i = 0; i<mapTwo.length; i+=mapTwo.length-1){
+            for(int j = 0; j < mapTwo[0].length; j++){
+                if(mapTwo[i][j] != 1){
+                    boundaries.add(mapTwo[i][j]);
+                }
+            }
+        }
 
+        //First and last col scan
+        for(int i = 0; i<mapTwo[0].length; i+=mapTwo[0].length-1){
+            for (int[] ints : mapTwo) {
+                if (ints[i] != 1) {
+                    boundaries.add(ints[i]);
+                }
+            }
+        }
 
 
 
