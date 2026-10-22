@@ -55,17 +55,19 @@ public class Closure {
 
         //Clear ponds
         for(int i = 0; i<map.length; i++){
+            int beginning = 0, end = 0;
             for(int j = 0; j < map[i].length; j++){
-                int beginning, end;
-                if(j+1 < map.length && map[i][j] == 1
+                if(j+1 < map[i].length && map[i][j] == 1
                     && map[i][j+1] == 0){
-                    beginning = j;
-                }else if(j+1 < map.length && map[i][j] == 0
-                        && map[i][j+1] == 1){
-                    end = j;
-                    for(int k = map[i][beginning]; k<=end; k++){
+                    beginning = j+1;
+                }else if(j+1 < map[i].length && map[i][j] == 0
+                        && map[i][j+1] == 1 && beginning != 0){
+                    end = j+1;
+                    for(int k = beginning; k < end; k++){
                         map[i][k] = 1;
                     }
+                    beginning = 0;
+                    end = 0;
                 }
             }
         }
