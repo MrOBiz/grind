@@ -19,8 +19,20 @@ public class Palindromes {
             }
         }
 
-        for(int i = 0; i < noSpace.size(); i++){
-            System.out.print(noSpace.get(i));
+        boolean isPalindrome = true;
+        for(int i = 0; i < (noSpace.size()/2); i++){
+            if(noSpace.get(i) != noSpace.get(noSpace.size()-i-1)){
+                isPalindrome = false;
+            }
+        }
+
+        if(isPalindrome){
+            System.out.println("Palindrome");
+        }else{
+            System.out.println("Not a palindrome: ");
+            for(int i = 0; i < noSpace.size(); i++){
+                System.out.print(noSpace.get(i));
+            }
         }
     }
 }
