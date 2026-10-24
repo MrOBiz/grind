@@ -16,7 +16,7 @@ public class lineBreak {
 
         System.out.print("Enter number of words: ");
         sentence = new String[sc.nextInt()];
-        sc.nextLine();
+        sc.nextLine(); //consumes the leftover \n from pressing enter after the int
 
         for(int i = 0; i < sentence.length; i++) {
             System.out.print("Enter word " + (i+1) + ": ");
