@@ -46,9 +46,11 @@ public class lineBreak {
         return true;
     }
 
-    /*static void lineBreak(String mot) {
-// A compléter:
-// détermine la césure d'un mot donné et effectue les affichages
-// correspondants (voir exemple de déroulement)
-    }*/
+    static void lineBreak(String mot) {
+        if(onlyVowels(mot)) {
+            System.out.println(mot);
+        }
+
+        //if()
+    }
 }
