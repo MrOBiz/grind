@@ -11,6 +11,7 @@ public class lineBreak {
             lineBreak(sentence[i]);
         }
     }
+
     static String[] readSentence() {
         String[] sentence;
 
@@ -26,18 +27,22 @@ public class lineBreak {
         return sentence;
     }
 
-    /*static boolean vowel(char c) {
-// A compléter:
-// teste si un caractère est une voyelle
+    static boolean vowel(char c) {
+        char[] vowels = {'a', 'e', 'i', 'o', 'u', 'y'};
+        for(char v : vowels){
+            if(c == v) return true;
+        }
+        return false;
     }
-    static boolean notVowel(String s) {
+
+    static boolean onlyVowels(String s) {
 // A compléter:
 // teste si une chaîne ne contient que des voyelles
 // utilise la méthode voyelle
-    }*/
-    static void lineBreak(String mot) {
+    }
+    /*static void lineBreak(String mot) {
 // A compléter:
 // détermine la césure d'un mot donné et effectue les affichages
 // correspondants (voir exemple de déroulement)
-    }
+    }*/
 }
