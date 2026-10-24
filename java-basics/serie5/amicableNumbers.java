@@ -8,6 +8,27 @@ public class amicableNumbers {
         printAmicables(numbers);
     }
 
-    static int[] printAmicables(int[] numbers){
+    static void printAmicables(int[] nums){
+        int[] divsSum = new int[nums.length];
+
+        for(int i = 0; i < nums.length; i++){
+            int sum = 0;
+            for(int j = 1; j<=nums[i]; j++) {
+                if (nums[i] % j == 0) {
+                    sum += j;
+                }
+            }
+            divsSum[i] = sum;
+        }
+
+        for(int i = 0; i < divsSum.length; i++){
+            for(int j = divsSum.length -1; j > i; j--){
+                if(divsSum[i] == divsSum[j]){
+                    if(divsSum[j] == nums[i] + nums[j]){
+                        System.out.println(nums[i] + " " + nums[j]);
+                    }
+                }
+            }
+        }
     }
 }
