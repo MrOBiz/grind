@@ -71,7 +71,9 @@ public class MatMultMod {
 
 
 
-/*public static void main(String[] args){
+/*NON MODULARIZED VERSION
+
+public static void main(String[] args){
     int row1, row2;
     int col1, col2;
 
