@@ -14,10 +14,14 @@ public class lineBreak {
 
     static String[] readSentence() {
         String[] sentence;
+        int size;
 
-        System.out.print("Enter number of words: ");
-        sentence = new String[sc.nextInt()];
-        sc.nextLine(); //consumes the leftover \n from pressing enter after the int
+        do {
+            System.out.print("Enter number of words (> 0): ");
+            size = sc.nextInt();
+            sentence = new String[size];
+            sc.nextLine();//consumes the leftover \n from pressing enter after the int
+        }while(size <= 0);
 
         for(int i = 0; i < sentence.length; i++) {
             System.out.print("Enter word " + (i+1) + ": ");
@@ -36,10 +40,12 @@ public class lineBreak {
     }
 
     static boolean onlyVowels(String s) {
-// A compléter:
-// teste si une chaîne ne contient que des voyelles
-// utilise la méthode voyelle
+        for(int i = 0; i < s.length(); i++) {
+            if(!vowel(s.charAt(i))) return false;
+        }
+        return true;
     }
+
     /*static void lineBreak(String mot) {
 // A compléter:
 // détermine la césure d'un mot donné et effectue les affichages
