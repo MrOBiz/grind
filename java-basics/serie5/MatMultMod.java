@@ -9,23 +9,63 @@ public class MatMultMod {
         double[][] mat1 = readMat();
         double[][] mat2 = readMat();
         if (mat1[0].length != mat2.length) {
-            System.out.println("Multiplication de matrices impossible !");
+            System.out.println("Multiplication is impossible!");
         } else {
             double [][] prod = multiply(mat1, mat2);
-            System.out.println("Résultat :");
+            System.out.println("Result :");
             printMat(prod);
         }
     }
 
     static double[][] readMat(){
+        int row, col;
+        double[][] mat;
+
+        do{
+            System.out.print("Enter number of matrix rows: ");
+            row = sc.nextInt();
+        }while(row <= 0);
+
+        do{
+            System.out.print("Enter number of matrix columns: ");
+            col = sc.nextInt();
+        }while(col <= 0);
+
+        mat = new double[row][col];
+
+        for(int i=0;i<row;i++){
+            for(int j=0;j<col;j++){
+                System.out.print("Enter M1's element for row " + (i+1)
+                        + " column " + (j+1) + " : ");
+                mat[i][j] = sc.nextDouble();
+            }
+        }
+
+        return mat;
     }
 
     static double[][] multiply(double[][] mat1, double[][] mat2){
+        double[][] result = new double[mat1.length][mat2[0].length];
 
+        for(int i=0;i<mat1.length;i++){
+            for(int j=0;j<mat2[0].length;j++){
+                for(int k=0;k<mat2.length;k++){
+                    result[i][j] += mat1[i][k]*mat2[k][j];
+                }
+            }
+        }
+
+        return result;
     }
 
     static void printMat(double[][] mat){
-
+        System.out.println("Multiplication Matrix: ");
+        for(int i = 0 ; i<mat.length; i++){
+            for(int j  = 0; j<mat[0].length; j++){
+                System.out.print(mat[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
 }
 
