@@ -46,11 +46,16 @@ public class lineBreak {
         return true;
     }
 
-    static void lineBreak(String mot) {
-        if(onlyVowels(mot)) {
-            System.out.println(mot);
+    static void lineBreak(String word) {
+        if(onlyVowels(word)) {
+            System.out.println(word);
         }
 
-        //if()
+        for(int i = 1; i < word.length()-1; i++){
+            if(i+1<word.length() && vowel(word.charAt(i))
+                    && !vowel(word.charAt(i+1))){
+
+            }
+        }
     }
 }
