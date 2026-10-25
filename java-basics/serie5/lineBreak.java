@@ -53,11 +53,16 @@ public class lineBreak {
 
         System.out.print(word.charAt(0));
         for(int i = 1; i < word.length()-1; i++){
-            if(i+1<word.length() && vowel(word.charAt(i))
+            if(i+1<=(word.length()-2)
+                    && vowel(word.charAt(i))
                     && !vowel(word.charAt(i+1))){
 
+                System.out.print(word.charAt(i) + "-\n");
+            }else{
+                System.out.print(word.charAt(i));
             }
         }
-        System.out.print(word.charAt(word.length()-1));
+        System.out.println(word.charAt(word.length()-1));
+
     }
 }
