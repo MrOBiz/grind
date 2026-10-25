@@ -43,8 +43,13 @@ public class Fibonacci {
         return Fn;
     }
 
-
     static int FibonacciRecursive(int n){
-        return 0;
+        if(n == 0) {
+            return 0;
+        }else if(n == 1){
+            return 1;
+        }else{
+            return FibonacciRecursive(n-1) + FibonacciRecursive(n-2);
+        }
     }
 }
