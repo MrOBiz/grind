@@ -8,9 +8,9 @@ public class recovery {
 
     public static void main(String[] args) {
         boolean[][] grid = new boolean[DIM][DIM];
-        char[] dirs = {'n', 's', 'e', 'w'};
+        String dirs = "NSEW";
 
-        int x = 0, y = 0;
+        int x = 0, y = 0, size = 0;
         String dir;
 
         do{
@@ -23,20 +23,33 @@ public class recovery {
             sc.nextLine();
             if(y<0) break;
 
-            System.out.print("Enter direction (n,s,e,w): ");
+            System.out.print("Enter direction (N,S,E,W): ");
             dir = sc.nextLine();
+            if (dir.length() == 1 && !dirs.contains(dir)) break;
 
+            System.out.print("Enter size: ");
+            size = sc.nextInt();
+            sc.nextLine();
+            if (size<0) break;
+
+            System.out.print("Positioning in (" + x + ", " + y
+                            + "), direction " + dir + ", size "
+                            +  size + " --> " + fill(grid, x, y, dir.charAt(0), size));
+
+            printGrid(grid);
         }while(true);
 
-        grid[2][3] = true;
-        grid[2][4] = true;
-        grid[2][5] = true;
+        System.out.println("FINAL GRID: ");
         printGrid(grid);
 
     }
 
-    static boolean fill(boolean[][] grid, int lin, int col,
+    static boolean fill(boolean[][] grid, int row, int col,
                         char dir, int length) {
+
+        //Verification of the space occupied
+
+        //Placement
         return true;
     }
 
