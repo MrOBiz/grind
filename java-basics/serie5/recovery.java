@@ -25,7 +25,7 @@ public class recovery {
 
             System.out.print("Enter direction (N,S,E,W): ");
             dir = sc.nextLine();
-            if (dir.length() == 1 && !dirs.contains(dir)) break;
+            if (dir.length() != 1 || !dirs.contains(dir)) break;
 
             System.out.print("Enter size: ");
             size = sc.nextInt();
@@ -48,6 +48,31 @@ public class recovery {
                         char dir, int length) {
 
         //Verification of the space occupied
+        switch (dir){
+            case 'N':
+                for(int i = 0; i < length; i++){
+                    grid[row - i][col] = true;
+                }
+                break;
+
+            case 'S':
+                for(int i = 0; i < length; i++){
+                    grid[row + i][col] = true;
+                }
+                break;
+
+            case 'E':
+                for(int i = 0; i < length; i++){
+                    grid[row][col + i] = true;
+                }
+                break;
+
+            case 'W':
+                for(int i = 0; i < length; i++){
+                    grid[row][col -i] = true;
+                }
+                break;
+        }
 
         //Placement
         return true;
