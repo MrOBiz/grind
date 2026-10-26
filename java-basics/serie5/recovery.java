@@ -16,12 +16,12 @@ public class recovery {
         do{
             System.out.print("Enter x: ");
             x = sc.nextInt();
-            if(x<0) break;
+            if(x<0 || x > DIM -1) break;
 
             System.out.print("Enter y: ");
             y = sc.nextInt();
             sc.nextLine();
-            if(y<0) break;
+            if(y<0 || y > DIM -1) break;
 
             System.out.print("Enter direction (N,S,E,W): ");
             dir = sc.nextLine();
@@ -30,7 +30,7 @@ public class recovery {
             System.out.print("Enter size: ");
             size = sc.nextInt();
             sc.nextLine();
-            if (size<0) break;
+            if (size<0 || size > DIM - 1) break;
 
             System.out.print("Positioning in (" + x + ", " + y
                             + "), direction " + dir + ", size "
@@ -47,11 +47,13 @@ public class recovery {
     static boolean fill(boolean[][] grid, int row, int col,
                         char dir, int length) {
 
-        //Verification of the space occupied
+        //Verification (Are cells in the grid? Occupied?)
         switch (dir){
             case 'N':
                 for(int i = 0; i < length; i++){
-                    grid[row - i][col] = true;
+                    if(row -i <= DIM -1) {
+                        grid[row - i][col] = true;
+                    }
                 }
                 break;
 
