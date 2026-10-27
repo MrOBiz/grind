@@ -51,6 +51,12 @@ public class recovery {
         switch (dir){
             case 'N':
                 if(row - (length -1) >= 0) {
+                    for(int i = 0; i < length; i++){
+                        if(grid[row - i][col]){
+                            return false;
+                        }
+                    }
+
                     for (int i = 0; i < length; i++) {
                         grid[row - i][col] = true;
                     }
@@ -61,6 +67,12 @@ public class recovery {
 
             case 'S':
                 if(row + (length -1) <= DIM -1) {
+                    for(int i = 0; i < length; i++){
+                        if(grid[row + i][col]){
+                            return false;
+                        }
+                    }
+
                     for (int i = 0; i < length; i++) {
                         grid[row + i][col] = true;
                     }
@@ -71,6 +83,12 @@ public class recovery {
 
             case 'E':
                 if(col + (length -1) <= DIM -1) {
+                    for(int i = 0; i < length; i++){
+                        if(grid[row][col + i]){
+                            return false;
+                        }
+                    }
+
                     for (int i = 0; i < length; i++) {
                         grid[row][col + i] = true;
                     }
@@ -81,6 +99,12 @@ public class recovery {
 
             case 'W':
                 if(col - (length -1) >= 0) {
+                    for(int i = 0; i < length; i++){
+                        if(grid[row][col - i]){
+                            return false;
+                        }
+                    }
+
                     for (int i = 0; i < length; i++) {
                         grid[row][col - i] = true;
                     }
@@ -89,8 +113,6 @@ public class recovery {
                 }
                 break;
         }
-
-        //Placement
         return true;
     }
 
