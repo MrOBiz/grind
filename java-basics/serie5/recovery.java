@@ -32,7 +32,7 @@ public class recovery {
             sc.nextLine();
             if (size<0 || size > DIM - 1) break;
 
-            System.out.print("Positioning in (" + x + ", " + y
+            System.out.println("Positioning in (" + x + ", " + y
                             + "), direction " + dir + ", size "
                             +  size + " --> " + fill(grid, x, y, dir.charAt(0), size));
 
@@ -50,28 +50,42 @@ public class recovery {
         //Verification (Are cells in the grid? Occupied?)
         switch (dir){
             case 'N':
-                for(int i = 0; i < length; i++){
-                    if(row -i <= DIM -1) {
+                if(row - (length -1) >= 0) {
+                    for (int i = 0; i < length; i++) {
                         grid[row - i][col] = true;
                     }
+                }else{
+                    return false;
                 }
                 break;
 
             case 'S':
-                for(int i = 0; i < length; i++){
-                    grid[row + i][col] = true;
+                if(row + (length -1) <= DIM -1) {
+                    for (int i = 0; i < length; i++) {
+                        grid[row + i][col] = true;
+                    }
+                }else{
+                    return false;
                 }
                 break;
 
             case 'E':
-                for(int i = 0; i < length; i++){
-                    grid[row][col + i] = true;
+                if(col + (length -1) <= DIM -1) {
+                    for (int i = 0; i < length; i++) {
+                        grid[row][col + i] = true;
+                    }
+                }else{
+                    return false;
                 }
                 break;
 
             case 'W':
-                for(int i = 0; i < length; i++){
-                    grid[row][col -i] = true;
+                if(col - (length -1) >= 0) {
+                    for (int i = 0; i < length; i++) {
+                        grid[row][col - i] = true;
+                    }
+                }else{
+                    return false;
                 }
                 break;
         }
