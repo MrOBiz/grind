@@ -30,7 +30,7 @@ public class recovery {
             System.out.print("Enter size: ");
             size = sc.nextInt();
             sc.nextLine();
-            if (size<0 || size > DIM - 1) break;
+            if (size<=0 || size > DIM) break;
 
             System.out.println("Positioning in (" + x + ", " + y
                             + "), direction " + dir + ", size "
@@ -112,6 +112,9 @@ public class recovery {
                     return false;
                 }
                 break;
+
+            default:
+                return false;
         }
         return true;
     }
