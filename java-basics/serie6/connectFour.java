@@ -50,8 +50,20 @@ public class connectFour {
 
     }
 
-    static int count(int[][] grid, int row, int col, int dirOne, int dirTwo){
-        return 0;
+    static int count(int[][] grid, int startRow, int startCol, int dirRow, int dirCol){
+        int counter = 0;
+        int row = startRow, col = startCol;
+
+        while(grid[row][col] == grid[startRow][startCol]
+                && row >= 0 && row < grid.length
+                && col >= 0 && col < grid[row].length){
+
+            counter++;
+            row = row + dirRow;
+            col = col + dirCol;
+        }
+
+        return counter;
     }
 
     static boolean winCon(int[][] grid, int player){
