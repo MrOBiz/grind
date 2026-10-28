@@ -9,9 +9,19 @@ public class connectFour {
     public static void main(String[] args){
         int[][] grid = new int[SIZE][SIZE];
 
+
         initialize(grid);
         print(grid);
     }
+
+    static void play(int[][] grid, int color, int col){
+        int row = grid.length-1;
+        while(grid[row][col] != EMPTY){
+            row--;
+        }
+        grid[row][col] = color;
+    }
+
 
     static void initialize(int[][] grid){
         for(int i = 0; i < grid.length; i++){
