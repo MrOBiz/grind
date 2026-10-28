@@ -1,18 +1,58 @@
 package serie6;
 
+import java.util.Scanner;
+
 public class connectFour {
+    static Scanner sc = new Scanner(System.in);
+
     private final static int EMPTY = 0;
     private final static int YELLOW = 1;
     private final static int RED = 2;
-    private final static int SIZE = 7;
+    private final static int SIZE = 8;
 
     public static void main(String[] args){
-        int[][] grid = new int[SIZE][SIZE];
+        int[][] grid = new int[7][SIZE];
+        int activePlayer = RED;
+        boolean victory = false;
 
-        initialize(grid);
+        /*initialize(grid);
         play(grid, YELLOW, 1);
         play(grid, RED, 1);
-        print(grid);
+        print(grid);*/
+
+
+        do{
+            int col;
+            if(activePlayer == RED){
+                do {
+                    System.out.print("X: enter column number--> ");
+                    col = sc.nextInt();
+                    sc.nextLine();
+                }while(col <= 0 || col > SIZE-1);
+            }else{
+                do {
+                    System.out.print("O: enter column number--> ");
+                    col = sc.nextInt();
+                    sc.nextLine();
+                }while(col <= 0 || col > SIZE-1);
+            }
+
+            //--col;
+
+            boolean valid = play(grid, activePlayer, col);
+            if(!valid) System.out.println("The move was invalid.");
+
+            print(grid);
+
+            victory = winCon(grid, activePlayer);
+            activePlayer = (activePlayer == RED)? YELLOW : RED;
+
+        }while(!victory);
+
+    }
+
+    static boolean winCon(int[][] grid, int player){
+        return true;
     }
 
     static boolean play(int[][] grid, int color, int col){
@@ -63,7 +103,7 @@ public class connectFour {
         }
 
         System.out.print('=');
-        for(int i = 1; i <= grid[0].length; i++){
+        for(int i = 1; i < grid[0].length; i++){
             System.out.print("=" + i);
         }
         System.out.println("==\n");
