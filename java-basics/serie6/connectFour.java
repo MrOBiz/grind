@@ -9,17 +9,23 @@ public class connectFour {
     public static void main(String[] args){
         int[][] grid = new int[SIZE][SIZE];
 
-
         initialize(grid);
+        play(grid, YELLOW, 1);
+        play(grid, RED, 1);
         print(grid);
     }
 
-    static void play(int[][] grid, int color, int col){
+    static boolean play(int[][] grid, int color, int col){
         int row = grid.length-1;
-        while(grid[row][col] != EMPTY){
+        while(row >= 0 && grid[row][col] != EMPTY){
             row--;
         }
-        grid[row][col] = color;
+
+        if(row >= 0){
+            grid[row][col] = color;
+            return true;
+        }
+        return false;
     }
 
 
