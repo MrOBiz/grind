@@ -20,7 +20,6 @@ public class connectFour {
         play(grid, RED, 1);
         print(grid);*/
 
-
         do{
             int col;
             if(activePlayer == RED){
@@ -51,8 +50,25 @@ public class connectFour {
 
     }
 
+    static int count(int[][] grid, int row, int col, int dirOne, int dirTwo){
+        return 0;
+    }
+
     static boolean winCon(int[][] grid, int player){
-        return true;
+        for(int i = 0; i < grid.length; i++){
+            for(int j = 0; j < grid[i].length; j++){
+                if(grid[i][j] == player){
+                    if(count(grid, i, j, -1, 1) >= 4
+                            || count(grid, i, j, 0, 1) >= 4
+                            || count(grid, i, j, 1, -1) >=4
+                            || count(grid, i, j, 1, 0) >= 4) {
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
     }
 
     static boolean play(int[][] grid, int color, int col){
