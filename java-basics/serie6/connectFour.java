@@ -55,7 +55,7 @@ public class connectFour {
         int row = startRow, col = startCol;
 
         while(grid[row][col] == grid[startRow][startCol]
-                && row >= 0 && row < grid.length
+                && row >= 0 && row < grid.length-1
                 && col >= 0 && col < grid[row].length){
 
             counter++;
