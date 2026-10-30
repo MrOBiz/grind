@@ -39,7 +39,10 @@ public class connectFour {
             //--col;
 
             boolean valid = play(grid, activePlayer, col);
-            if(!valid) System.out.println("The move was invalid.");
+            if(!valid) {
+                System.out.println("The move was invalid.");
+                continue;
+            }
 
             print(grid);
 
@@ -54,9 +57,10 @@ public class connectFour {
         int counter = 0;
         int row = startRow, col = startCol;
 
-        while(grid[row][col] == grid[startRow][startCol]
-                && row >= 0 && row < grid.length-1
-                && col >= 0 && col < grid[row].length){
+        while(row >= 0 && row < grid.length
+                && col >= 0 && col < grid[row].length
+                && grid[row][col] == grid[startRow][startCol])
+                {
 
             counter++;
             row = row + dirRow;
