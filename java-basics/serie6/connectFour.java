@@ -47,11 +47,29 @@ public class connectFour {
             print(grid);
 
             victory = winCon(grid, activePlayer);
+
             activePlayer = (activePlayer == RED)? YELLOW : RED;
 
-        }while(!victory);
+        }while(!victory && !isFull(grid));
+
+
+        if(victory){
+            System.out.println((activePlayer == RED)? "X WINS!" : "O WINS!");
+        }else{
+            System.out.println("Game over!");
+        }
 
     }
+
+    static boolean isFull (int[][] grid){
+        for(int val : grid[0]){
+            if(val == EMPTY){
+                return false;
+            }
+        }
+        return true;
+    }
+
 
     static int count(int[][] grid, int startRow, int startCol, int dirRow, int dirCol){
         int counter = 0;
