@@ -54,7 +54,7 @@ public class connectFour {
 
 
         if(victory){
-            System.out.println((activePlayer == RED)? "X WINS!" : "O WINS!");
+            System.out.println((activePlayer == RED)? "O WINS!" : "X WINS!");
         }else{
             System.out.println("Game over!");
         }
