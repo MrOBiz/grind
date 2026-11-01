@@ -8,7 +8,7 @@ public class insertionSort {
             System.out.print(val + " ");
         }
 
-        for(int k = numbers.length/2; k >= 1; k /= 2){
+        for(int k = numbers.length/2; k > 1; k /= 2){
             for(int i = k+1; i < numbers.length; i++){
                 int j = i-k;
                 while(j > 0){
