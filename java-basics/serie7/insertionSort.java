@@ -2,7 +2,8 @@ package serie7;
 
 public class insertionSort {
     public static void main(String[] args){
-        int[] numbers = {17, 4, 12, 1, 19, 7, 14, 3, 10, 16, 2, 20, 8, 5, 13, 9, 18, 6, 15, 11};
+        //int[] numbers = {17, 4, 12, 1, 19, 7, 14, 3, 10, 16, 2, 20, 8, 5, 13, 9, 18, 6, 15, 11};
+        int[] numbers = {8, -3, 12, 0, 5, -7, 8, 2, -1, 15, 4, 0, -5, 11, 3, -3, 7, 1, 9, -2};
 
         for(int val : numbers) {
             System.out.print(val + " ");
