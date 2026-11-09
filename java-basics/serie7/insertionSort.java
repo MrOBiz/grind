@@ -9,16 +9,16 @@ public class insertionSort {
         }
 
         for(int k = numbers.length/2; k >= 1; k /= 2){
-            for(int i = k+1; i < numbers.length; i++){
+            for(int i = k; i < numbers.length; i++){
                 int j = i-k;
-                while(j > 0){
+                while(j >= 0){
                     if(numbers[j] > numbers[j+k]){
                         int t = numbers[j];
                         numbers[j] = numbers[j+k];
                         numbers[j+k] = t;
-                        j = i-k;
+                        j = j-k;
                     }else{
-                        j = 0;
+                        j = -1;
                     }
                 }
             }
