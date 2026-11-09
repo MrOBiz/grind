@@ -21,7 +21,14 @@ public class treeDecoration {
         System.out.println("What symbol should be used to draw?");
         sym = sc.nextLine();
 
-        int[][] tree = new int[0][0];
+        int[][] tree = new int[dim][];
+
+        for(int i = 0; i < tree.length; i++){
+
+            for(int j = 0; j < tree[i].length; j++){
+
+            }
+        }
 
 
         return tree;
