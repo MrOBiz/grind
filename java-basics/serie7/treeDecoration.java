@@ -50,8 +50,10 @@ public class treeDecoration {
         //decorations
         for(int i = 1; i < tree.length; i+=2){
             for(int j = 0; j < (i*2) +1 ; j++){
-                if(deco.length()){
-                    tree[i][tree.length - i -1 + j] = sym;
+                if(deco.length() < (i*2) +1){
+                    for(int k = 0; k < deco.length(); k++) {
+                        tree[i][tree.length - i - 1 + j] = ;
+                    }else{}
                 }
             }
         }
