@@ -5,9 +5,8 @@ import java.util.Scanner;
 public class treeDecoration {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args){
-        String[][] tree = new String[][];
 
-        tree = buildTree();
+        String[][] tree = buildTree();
         drawTree(tree);
 
     }
