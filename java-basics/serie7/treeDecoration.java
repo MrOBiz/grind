@@ -35,18 +35,24 @@ public class treeDecoration {
 
         String[][] tree = new String[dim][];
 
+        //basic tree
         for(int i = 0; i < tree.length; i++){
             tree[i] = new String[tree.length*2 - 1];
             for(int j = 0; j < tree.length*2 - 1; j++){
                 tree[i][j] = " ";
             }
 
-            //for(int j = 0; j < tree.length - i -1; j++){
-            //    tree[i][j] = " ";
-            //}
-
             for(int j = 0; j < (i*2) +1 ; j++){
                 tree[i][tree.length - i -1 + j] = sym;
+            }
+        }
+
+        //decorations
+        for(int i = 1; i < tree.length; i+=2){
+            for(int j = 0; j < tree[i].length; j++){
+                if(deco.length()){
+
+                }
             }
         }
 
