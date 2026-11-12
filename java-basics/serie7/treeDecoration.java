@@ -5,10 +5,14 @@ import java.util.Scanner;
 public class treeDecoration {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args){
+        String[][] tree = new String[][];
+
+        tree = buildTree();
+        drawTree(tree);
 
     }
 
-    static int[][] drawTree(){
+    static String[][] buildTree(){
         int dim;
         String sym;
 
@@ -21,15 +25,27 @@ public class treeDecoration {
         System.out.println("What symbol should be used to draw?");
         sym = sc.nextLine();
 
-        int[][] tree = new int[dim][];
+        String[][] tree = new String[dim][];
 
         for(int i = 0; i < tree.length; i++){
-            for(int j = 0; j < tree[i].length; j++){
+            for(int j = 0; j < tree.length - i; j++){
+                tree[i][j] = " ";
+            }
 
+            for(int j = 0; j < (i*2) +1 ; j++){
+                tree[i][j] = sym;
             }
         }
 
-
         return tree;
+    }
+
+    static void drawTree(String[][] tree){
+        for(int i = 0; i < tree.length; i++){
+            for(int j = 0; j < tree[i].length; j++){
+                System.out.print(tree[i][j]);
+            }
+            System.out.println();
+        }
     }
 }
