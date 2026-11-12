@@ -28,9 +28,13 @@ public class treeDecoration {
 
         for(int i = 0; i < tree.length; i++){
             tree[i] = new String[tree.length*2 - 1];
-            for(int j = 0; j < tree.length - i -1; j++){
+            for(int j = 0; j < tree.length*2 - 1; j++){
                 tree[i][j] = " ";
             }
+
+            //for(int j = 0; j < tree.length - i -1; j++){
+            //    tree[i][j] = " ";
+            //}
 
             for(int j = 0; j < (i*2) +1 ; j++){
                 tree[i][tree.length - i -1 + j] = sym;
