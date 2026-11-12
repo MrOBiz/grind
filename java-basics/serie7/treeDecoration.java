@@ -44,7 +44,15 @@ public class treeDecoration {
 
             for(int j = 0; j < (i*2) +1 ; j++){
                 tree[i][tree.length - i -1 + j] = sym;
-                //decorations
+            }
+        }
+
+        //decorations
+        for(int i = 1; i < tree.length; i+=2){
+            for(int j = 0; j < (i*2) +1 ; j++){
+                if(deco.length()){
+                    tree[i][tree.length - i -1 + j] = sym;
+                }
             }
         }
 
