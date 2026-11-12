@@ -21,8 +21,10 @@ public class treeDecoration {
             sc.nextLine();
         }while(dim < 8 || dim > 35);
 
-        System.out.println("What symbol should be used to draw?");
-        sym = sc.nextLine();
+        do {
+            System.out.println("What symbol should be used to draw?");
+            sym = sc.nextLine();
+        }while(sym.length() != 1);
 
         String[][] tree = new String[dim][];
 
