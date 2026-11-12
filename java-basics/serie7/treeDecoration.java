@@ -14,6 +14,7 @@ public class treeDecoration {
     static String[][] buildTree(){
         int dim;
         String sym;
+        String deco;
 
         do{
             System.out.println("How many floors does the tree have? ");
@@ -25,6 +26,12 @@ public class treeDecoration {
             System.out.println("What symbol should be used to draw?");
             sym = sc.nextLine();
         }while(sym.length() != 1);
+
+        do {
+            System.out.println("What symbol should be used to decorate?");
+            deco = sc.nextLine();
+        }while(deco.length() < 3 || deco.length() > 25
+                || deco.contains(sym));
 
         String[][] tree = new String[dim][];
 
