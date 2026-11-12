@@ -28,7 +28,7 @@ public class treeDecoration {
         }while(sym.length() != 1);
 
         do {
-            System.out.println("What symbol should be used to decorate?");
+            System.out.println("What symbols should be used to decorate?");
             deco = sc.nextLine();
         }while(deco.length() < 3 || deco.length() > 25
                 || deco.contains(sym));
@@ -44,15 +44,7 @@ public class treeDecoration {
 
             for(int j = 0; j < (i*2) +1 ; j++){
                 tree[i][tree.length - i -1 + j] = sym;
-            }
-        }
-
-        //decorations
-        for(int i = 1; i < tree.length; i+=2){
-            for(int j = 0; j < tree[i].length; j++){
-                if(deco.length()){
-
-                }
+                //decorations
             }
         }
 
