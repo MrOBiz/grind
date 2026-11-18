@@ -9,14 +9,12 @@ public class MagicTrick {
 }
 
 class Magician{
-    private int total = getCalc() + 115;
-
     private void present(Object person){
         System.out.println( person.toString() + " A little magic trick!");
     }
 
-    public void grandFinale(Object person){
-        System.out.println( person.toString() + "hmmm... I see! You are ");
+    public void grandFinale(int res){
+        System.out.println("hmmm... I see! You are ");
     }
 
     public String toString(){
@@ -39,8 +37,8 @@ class Assistant{
         return ((a*2+5)*50+m)-365;
     }
 
-    public void readPaper(Object person){
-        System.out.print(person.toString() + " reads the paper");
+    public void readPaper(Paper paper){
+        System.out.print("Reads the paper");
     }
 
     public void calculate(Object person){
@@ -82,13 +80,13 @@ class Spectator{
             System.out.print("What's my age?");
             age = input.nextInt();
             input.nextLine();
-        }while(age < 18 || age > 100);
+        }while(age < 0 || age > 100);
 
         do{
             System.out.print("How much money do I have in my pocket (<100)?");
-            age = input.nextInt();
+            money = input.nextInt();
             input.nextLine();
-        }while(money < 1 || money > 100);
+        }while(money < 0 || money > 100);
     }
 
     public void snarkyAnswer(){
@@ -100,7 +98,7 @@ class Spectator{
     }
 }
 
-class paper{
+class Paper{
     private int writtenAge, writtenMoney;
 
     public void writeOnPaper(Object person){
