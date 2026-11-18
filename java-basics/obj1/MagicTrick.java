@@ -9,16 +9,13 @@ public class MagicTrick {
         Spectator s = new Spectator();
         Paper p = new Paper();
 
-        int res;
-
         s.walkIn();
         m.present();
         s.askInfo();
         s.writeOnPaper(p);
         a.readPaper(p);
         s.snarkyAnswer();
-        res = a.shout();
-        m.grandFinale(res);
+        m.grandFinale(a.shout());
 
     }
 }
