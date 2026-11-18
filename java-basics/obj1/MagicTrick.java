@@ -9,15 +9,16 @@ public class MagicTrick {
         Spectator s = new Spectator();
         Paper p = new Paper();
 
+        int res;
+
         s.walkIn();
         m.present();
         s.askInfo();
         s.writeOnPaper(p);
         a.readPaper(p);
         s.snarkyAnswer();
-        a.sayCalculate();
-        a.shout();
-        m.grandFinale(a.getRes());
+        res = a.shout();
+        m.grandFinale(res);
 
     }
 }
@@ -41,23 +42,22 @@ class Magician{
 
 class Assistant{
     private Paper p;
-    private int res = ((p.getWrittenAge()*2+5)*50+p.getWrittenMoney())-365;
-
-    public int getRes(){
-        return res;
-    }
 
     public void readPaper(Paper paper){
         System.out.print(this + " Reads the paper");
         p = paper;
     }
 
-    public void sayCalculate(){
+    public int calculate(){
         System.out.print(this + " calculates the hint");
+        int res = ((p.getWrittenAge()*2+5)*50+p.getWrittenMoney())-365;
+        return res;
     }
 
-    public void shout(){
+    public int shout(){
+        int res = calculate();
         System.out.println(this + " I shout: " + res + "!");
+        return res;
     }
 
     public String toString(){
