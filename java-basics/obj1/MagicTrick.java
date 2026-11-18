@@ -9,12 +9,15 @@ public class MagicTrick {
 }
 
 class Magician{
-    private void present(Object person){
-        System.out.println( person.toString() + " A little magic trick!");
+    public void present(){
+        System.out.println(" A little magic trick!");
     }
 
     public void grandFinale(int res){
-        System.out.println("hmmm... I see! You are ");
+        res+=115;
+        System.out.println("hmmm... I see! You are " + res/100
+                            + " years old, and you have " + res%100
+                            + "$ in your pocket!");
     }
 
     public String toString(){
@@ -36,9 +39,10 @@ class Assistant{
         return res;
     }
 
-    public void shout(){
+    public int shout(){
         int res = calculate();
         System.out.println("I shout: " + res + "!");
+        return res;
     }
 
     public String toString(){
@@ -50,7 +54,6 @@ class Spectator{
     private final static Scanner input = new Scanner(System.in);
 
     private int age, money;
-    private Paper p;
 
     public int getAge(){
         return age;
@@ -80,7 +83,7 @@ class Spectator{
 
     public void writeOnPaper(Paper paper){
         System.out.println("(writes on the piece of paper)");
-        p = paper;
+        paper.writeOnPaper(age,money);
     }
 
     public void snarkyAnswer(){
