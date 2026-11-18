@@ -6,6 +6,7 @@ public class TestCircle {
 
         c1.setCenter(2.5, 3.2);
         c1.setRadius(5.0);
+        System.out.println(c1.surface());
     }
 }
 
@@ -21,5 +22,9 @@ class Circle{
     public void setRadius(double r){
         this.radius = r;
     };
+
+    public double surface(){
+        return Math.PI*radius*radius;
+    }
 }
 
