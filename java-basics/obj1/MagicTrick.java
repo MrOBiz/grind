@@ -23,34 +23,22 @@ class Magician{
 }
 
 class Assistant{
-    private int myMoney, myAge, result;
-
-    public void setMoney(int val){
-        myMoney = val;
-    }
-
-    public void setAge(int val){
-        myAge = val;
-    }
-
-    private int calc(int m, int a){
-        return ((a*2+5)*50+m)-365;
-    }
+    private Paper p;
 
     public void readPaper(Paper paper){
         System.out.print("Reads the paper");
+        p = paper;
     }
 
-    public void calculate(Object person){
-        System.out.print(person.toString() + " calculates the hint");
+    public int calculate(){
+        System.out.print("calculates the hint");
+        int res = ((p.getWrittenAge()*2+5)*50+p.getWrittenMoney())-365;
+        return res;
     }
 
     public void shout(){
-        System.out.println("I shout: " + getCalc() + "!");
-    }
-
-    public int getCalc(){
-        return calc(myMoney, myAge);
+        int res = calculate();
+        System.out.println("I shout: " + res + "!");
     }
 
     public String toString(){
@@ -62,6 +50,7 @@ class Spectator{
     private final static Scanner input = new Scanner(System.in);
 
     private int age, money;
+    private Paper p;
 
     public int getAge(){
         return age;
@@ -86,7 +75,12 @@ class Spectator{
             System.out.print("How much money do I have in my pocket (<100)?");
             money = input.nextInt();
             input.nextLine();
-        }while(money < 0 || money > 100);
+        }while(money < 0 || money > 99);
+    }
+
+    public void writeOnPaper(Paper paper){
+        System.out.println("(writes on the piece of paper)");
+        p = paper;
     }
 
     public void snarkyAnswer(){
@@ -101,16 +95,9 @@ class Spectator{
 class Paper{
     private int writtenAge, writtenMoney;
 
-    public void writeOnPaper(Object person){
-        System.out.print(person.toString() + " writes on the paper");
-    }
-
-    public void setWrittenAge(int val){
-        writtenAge = val;
-    }
-
-    public void setWrittenMoney(int val){
-        writtenMoney = val;
+    public void writeOnPaper(int age, int money){
+        writtenAge = age;
+        writtenMoney = money;
     }
 
     public int getWrittenAge(){
