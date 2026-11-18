@@ -13,12 +13,12 @@ class Circle{
     private double radius;
     private double x, y;
 
-    void setCenter(double x, double y){
+    public void setCenter(double x, double y){
         this.x = x;
         this.y = y;
     };
 
-    void setRadius(double r){
+    public void setRadius(double r){
         this.radius = r;
     };
 }
