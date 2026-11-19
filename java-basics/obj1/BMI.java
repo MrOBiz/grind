@@ -16,19 +16,18 @@ class Patient{
     private double weight, height;
 
     public void init(double weight, double height){
-        this.weight = weight;
-        this.height = height;
+        this.weight = (weight > 0)? weight  :  0;
+        this.height = (height > 0 && height < 2.5)? height  :  0;
     }
 
     public void print(){
-        System.out.println("Height: " + height
-                            + " Weight: " + weight);
+        System.out.printf("Height: %.1f m", height);
+        System.out.printf(" Weight: %.1f kg", weight);
+        System.out.println();
     }
 
     public double bmi(){
-        double val;
-
-        return val;
+        return (height > 0.0)? weight/(height*height) : 0.0;
     }
 }
 
