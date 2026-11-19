@@ -46,3 +46,7 @@ public class PiggyBank {
         input.close();
     }
 }
+
+class Bank{
+    private double amount;
+}
