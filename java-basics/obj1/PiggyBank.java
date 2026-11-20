@@ -5,15 +5,15 @@ public class PiggyBank {
         Bank piggy = new Bank();
 
         piggy.empty();
-        piggy.close();
+        piggy.shake();
         piggy.print();
 
-        piggy.deposit(20.0);
-        piggy.close();
+        piggy.draw(20.0);
+        piggy.shake();
         piggy.print();
 
         piggy.fill(550.0);
-        piggy.close();
+        piggy.shake();
         piggy.print();
 
         piggy.draw(10.0);
@@ -49,4 +49,39 @@ public class PiggyBank {
 
 class Bank{
     private double amount;
+
+    public double getAmount(){
+        return amount;
+    }
+
+    public void print(){
+        if(amount <= 0.0){
+            System.out.print("You're out of cash!");
+        }else{
+            System.out.print(amount + "$ in the bank");
+        }
+    }
+
+    public void shake(){
+        if(amount <= 0.0){
+            System.out.print("...");
+        }else{
+            System.out.println("Bing bing");
+        }
+    }
+
+    public void fill(double val){
+        if(val > 0.0) amount+=val;
+    }
+
+    public void empty(){
+        amount = 0;
+    }
+
+    public void draw(double val){
+        if(val < 0.0){
+
+        }
+    }
+
 }
