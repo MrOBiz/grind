@@ -1,5 +1,7 @@
 package obj1;
 
+import java.util.Scanner;
+
 public class PiggyBank {
     public static void main(String[] args) {
         Bank piggy = new Bank();
@@ -79,9 +81,13 @@ class Bank{
     }
 
     public void draw(double val){
-        if(val < 0.0){
-
-        }
+        if(val < 0.0) val = 0.0;
+        if(val > amount) val = amount;
+        amount = amount - val;
     }
 
+    public double calcTotal(double budget){
+        if(budget <= 0) return amount;
+        return amount - budget;
+    }
 }
