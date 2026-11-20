@@ -21,14 +21,22 @@ class Flower{
     public Flower(String type, String color){
         this.type = type;
         this.color = color;
+
+        System.out.println("Violette fraischement cueillie");
     }
 
     public Flower(Flower other){
         this.type = other.type;
         this.color = other.color;
+
+        System.out.print("Fragile corolle tailée ");
     }
 
     public void open(){
+        System.out.print("veiné de bleu \n");
+    }
 
+    public String toString(){
+        return "qu'un simple souffle";
     }
 }
