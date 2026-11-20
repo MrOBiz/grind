@@ -36,7 +36,7 @@ public class PiggyBank {
 
         if (solde >= 0) {
             System.out.println("You have enough for a holiday!");
-            System.out.print(" You'll be left with " + solde + "$");
+            System.out.print("You'll be left with " + solde + "$");
             System.out.print(" once back \n");
             piggy.draw(budget);
         }
@@ -58,9 +58,9 @@ class Bank{
 
     public void print(){
         if(amount <= 0.0){
-            System.out.print("You're out of cash!");
+            System.out.println("You're out of cash!");
         }else{
-            System.out.print(amount + "$ in the bank");
+            System.out.println(amount + "$ in the bank");
         }
     }
 
