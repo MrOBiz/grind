@@ -28,22 +28,22 @@ public class PiggyBank {
         double budget;
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Donnez le budget de vos vacances : ");
+        System.out.println("Give holiday budget: ");
         budget = input.nextDouble();
 
         // total after holiday
         double solde = piggy.calcTotal(budget);
 
         if (solde >= 0) {
-            System.out.println("Vous etes assez riche pour partir en vacances !");
-            System.out.print(" il vous restera " + solde + " euros");
-            System.out.print(" a la rentree \n");
+            System.out.println("You have enough for a holiday!");
+            System.out.print(" You'll be left with " + solde + "$");
+            System.out.print(" once back \n");
             piggy.draw(budget);
         }
 
         else {
-            System.out.print("Il vous manque " + (-solde) + " euros");
-            System.out.print(" pour partir en vacances !\n");
+            System.out.print("You need " + (-solde) + "$");
+            System.out.print(" to go on holiday!\n");
         }
         input.close();
     }
