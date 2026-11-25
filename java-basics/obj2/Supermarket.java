@@ -1,5 +1,7 @@
 package obj2;
 
+import java.util.ArrayList;
+
 public class Supermarket {
     public static void main(String[] args) {
 // Les articles vendus dans le supermarché
@@ -27,25 +29,64 @@ public class Supermarket {
 // le second argument de la méthode remplir
 // correspond à une quantité
 // remplissage du 1er caddie
-        caddie1.remplir(choufleur, 2);
-        caddie1.remplir(cdrom, 1);
-        caddie1.remplir(biscuits, 4);
-        caddie1.remplir(boisson, 6);
-        caddie1.remplir(poisson, 2);
+        caddie1.fill(choufleur, 2);
+        caddie1.fill(cdrom, 1);
+        caddie1.fill(biscuits, 4);
+        caddie1.fill(boisson, 6);
+        caddie1.fill(poisson, 2);
 // remplissage du 2eme caddie
-        caddie2.remplir(roman, 1);
-        caddie2.remplir(camembert, 1);
-        caddie2.remplir(petitspois, 2);
-        caddie2.remplir(poires, 2);
+        caddie2.fill(roman, 1);
+        caddie2.fill(camembert, 1);
+        caddie2.fill(petitspois, 2);
+        caddie2.fill(poires, 2);
 // remplissage du 3eme caddie
-        caddie3.remplir(cafe, 2);
-        caddie3.remplir(pain, 1);
-        caddie3.remplir(camembert, 2);
+        caddie3.fill(cafe, 2);
+        caddie3.fill(pain, 1);
+        caddie3.fill(camembert, 2);
 // Les clients passent à la caisse
-        caisse1.scanner(caddie1);
-        caisse1.scanner(caddie2);
-        caisse2.scanner(caddie3);
-        caisse1.totalCaisse();
-        caisse2.totalCaisse();
+        caisse1.scan(caddie1);
+        caisse1.scan(caddie2);
+        caisse2.scan(caddie3);
+        caisse1.calcTot();
+        caisse2.calcTot();
     }
+}
+
+class Article{
+    private String name;
+    private double price;
+    private boolean inStock;
+
+    public Article(String name, double price, boolean inStock){
+        this.name = name;
+        this.price = price;
+        this.inStock = inStock;
+    }
+}
+
+class Caddie{
+    private ArrayList<Article> content = new ArrayList<>();
+
+    public boolean fill(Article art, int quantity){
+        return true;
+    }
+}
+
+class Caisse{
+    private int num;
+    private double cash;
+
+    public Caisse(int num, double cash){
+        this.num = num;
+        this.cash = cash;
+    }
+
+    public boolean scan(Caddie cad){
+        return true;
+    }
+
+    public double calcTot(){
+        return cash;
+    }
+
 }
