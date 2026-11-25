@@ -64,17 +64,21 @@ class Account{
         return total;
     }
 
-    public double getRate(){
-        return rate;
+    public void addInterest(){
+        double interest = rate*total;
+        total = total + interest;
     }
 }
 
 class Customer{
     private String name, place;
+    private Account simple, saving;
 
-    public Customer(String name, String place){
+    public Customer(String name, String place, Account simple, Account saving){
         this.name = name;
         this.place = place;
+        this.simple = simple;
+        this.saving = saving;
     }
 
     public String getName(){
@@ -85,5 +89,10 @@ class Customer{
         return place;
     }
 
+    public void printCustomer(){
+        System.out.println("Customer " + name + " from " + place);
+        System.out.println(" Private account: " + simple.getTotal() + " francs");
+        System.out.println(" Savings account: " + saving.getTotal() + " francs");
+    }
 }
 
