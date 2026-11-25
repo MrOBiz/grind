@@ -51,3 +51,20 @@ public class Banque1 {
         return nouveauSolde;
     }
 }
+
+class account{
+    private double total, rate;
+
+    public void setRate(double rate){
+        this.rate = rate;
+    }
+
+    public void setTotal(double total){
+        this.total = total;
+    }
+
+    public double getTotal(){
+        return total;
+    }
+
+}
