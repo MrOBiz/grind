@@ -67,4 +67,29 @@ class account{
         return total;
     }
 
+    public double getRate(){
+        return rate;
+    }
 }
+
+class customer{
+    private String name, place;
+
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public void setPlace(String place){
+        this.place = place;
+    }
+
+    public double getName(){
+        return name;
+    }
+
+    public double getPlace(){
+        return place;
+    }
+
+}
+
