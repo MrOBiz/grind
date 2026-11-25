@@ -4,11 +4,11 @@ public class Banque1 {
     public static void main(String[] args) {
         Account simpleP = new Account(1000.0, 0.01);
         Account savP = new Account(2000.0, 0.02);
-        Customer Ped = new Customer("Pedro", "Geneva", simpleP, savP);
+        Customer Ped = new Customer("Pedro", "M","Geneva", simpleP, savP);
 
         Account simpleA = new Account(3000.0, 0.01);
         Account savA = new Account(4000.0, 0.02);
-        Customer Alex = new Customer("Alexandra", "Lausanne", simpleA, savA);
+        Customer Alex = new Customer("Alexandra", "F", "Lausanne", simpleA, savA);
 
         System.out.println("Data before interests: ");
         Ped.printCustomer();
@@ -46,18 +46,20 @@ class Account{
 }
 
 class Customer{
-    private String name, place;
+    private String name, sex, place;
     private Account simple, saving;
 
-    public Customer(String name, String place, Account simple, Account saving){
+    public Customer(String name, String sex, String place, Account simple, Account saving){
         this.name = name;
+        this.sex = sex;
         this.place = place;
         this.simple = simple;
         this.saving = saving;
     }
 
     public void printCustomer(){
-        System.out.println("Customer " + name + " from " + place);
+        if(sex.equals("M")) System.out.println("Customer (MAAA MAN!) " + name + " from " + place);
+        if(sex.equals("F")) System.out.println("Customer (M'LADY!) " + name + " from " + place);
         System.out.println(" Private account: " + simple.getTotal() + " francs");
         System.out.println(" Savings account: " + saving.getTotal() + " francs");
     }
