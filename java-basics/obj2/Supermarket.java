@@ -64,10 +64,21 @@ class Article{
     }
 }
 
+class CaddieItem {
+    private Article article;
+    private int quantity;
+
+    public CaddieItem(Article article, int quantity) {
+        this.article = article;
+        this.quantity = quantity;
+    }
+}
+
 class Caddie{
-    private ArrayList<Article> content = new ArrayList<>();
+    private ArrayList<CaddieItem> content = new ArrayList<>();
 
     public boolean fill(Article art, int quantity){
+        content.add(new CaddieItem(art, quantity));
         return true;
     }
 }
