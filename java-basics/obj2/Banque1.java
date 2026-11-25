@@ -52,14 +52,11 @@ public class Banque1 {
     }
 }
 
-class account{
+class Account{
     private double total, rate;
 
-    public void setRate(double rate){
+    public Account(double total, double rate){
         this.rate = rate;
-    }
-
-    public void setTotal(double total){
         this.total = total;
     }
 
@@ -72,22 +69,19 @@ class account{
     }
 }
 
-class customer{
+class Customer{
     private String name, place;
 
-    public void setName(String name){
+    public Customer(String name, String place){
         this.name = name;
-    }
-
-    public void setPlace(String place){
         this.place = place;
     }
 
-    public double getName(){
+    public String getName(){
         return name;
     }
 
-    public double getPlace(){
+    public String getPlace(){
         return place;
     }
 
