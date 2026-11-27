@@ -36,7 +36,27 @@ class Oeuvre {
     }
 
     public String getAuteur(){
-        return auteur;
+        return auteur.getName();
+    }
+
+    public String getLangue(){
+        return language;
+    }
+
+    public void print(){
+        System.out.println(title + ", " + auteur.getName()
+                            + ", " + language);
+    }
+}
+
+class Exemplaire{
+    private String title, language;
+    private Auteur auteur;
+
+    public Exemplaire(Oeuvre oeuvre){
+        this.title = oeuvre.getTitle();
+        this.language = oeuvre.getLangue();
+        this.auteur = oeuvre.getAuteur();
     }
 }
 
