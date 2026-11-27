@@ -95,7 +95,7 @@ class CaddieItem {
         if(article.getSolde()){
             System.out.println(article.getName() + ": " + article.getPrice()
                     + " x " + quantity + " = "
-                    + article.getPrice() * quantity * (1 / 2) + " CHF (50% off)");
+                    + article.getPrice() * quantity * 0.5 + " CHF (50% off)");
         }else{
             System.out.println(article.getName() + ": " + article.getPrice()
                     + " x " + quantity + " = "
