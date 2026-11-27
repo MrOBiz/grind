@@ -1,6 +1,8 @@
 package obj2;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Supermarket {
     public static void main(String[] args) {
@@ -127,8 +129,12 @@ class Caisse{
     public void scan(Caddie cad){
         double toPay = 0.0;
 
+        Date dateCourante = new Date();
+        SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yy");
+
+
         System.out.println("===============================");
-        System.out.println("27/10/14");
+        System.out.println(formatDate.format(dateCourante));
         System.out.println("Counter n " + num + "\n");
 
         for(CaddieItem elt : cad.getContent()){
@@ -142,8 +148,7 @@ class Caisse{
     }
 
     public void printTot(){
-        System.out.println("Counter n " + num + " made "
-                            + cash + "CHF today.");
+        System.out.printf("Counter n %d made %.2f CHF today. \n", num, cash);
     }
 
 }
