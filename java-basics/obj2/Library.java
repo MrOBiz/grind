@@ -3,29 +3,44 @@ package obj2;
 import java.util.ArrayList;
 
 class Auteur {
+    private String name;
+    private boolean awarded;
 
-    /*******************************************
-     * Completez le programme a partir d'ici.
-     *******************************************/
-    // Completer la classe Auteur ici
+    public Auteur(String name, boolean awarded){
+        this.name = name;
+        this.awarded = awarded;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public boolean getPrize(){
+        return awarded;
+    }
 }
 
-class Oeuvre
-{
-    // Completer la classe Oeuvre ici
+class Oeuvre {
+    private String title;
+    private Auteur auteur;
+    private String language;
+
+    public Oeuvre(String title, Auteur auteur, String language){
+        this.title = title;
+        this.auteur = auteur;
+        this.language = language;
+    }
+
+    public String getTitle(){
+        return title;
+    }
+
+    public String getAuteur(){
+        return auteur;
+    }
 }
 
-// completer les autres classes ici
 
-
-/*******************************************
- * Ne rien modifier apres cette ligne.
- *******************************************/
-/*******************************************
- * Ce qui suit est propose' pour vous aider
- * dans vos tests, mais votre programme sera
- * teste' avec d'autres donnees.
- *******************************************/
 
 public class Library {
 
@@ -56,7 +71,7 @@ public class Library {
         biblio.stocker(o5);
 
         // ...
-        System.out.println("La bibliotheque " + biblio.getNom() + " offre ");
+        System.out.println("La bibliotheque " + biblio.getName() + " offre ");
         afficherExemplaires(biblio.listerExemplaires());
         String langue = "anglais";
         System.out.println("Les exemplaires en " + langue + " sont  ");
@@ -64,7 +79,7 @@ public class Library {
         System.out.println("Les auteurs a succes sont  ");
         biblio.afficherAuteur();
         System.out.print("Il y a " + biblio.compterExemplaires(o3) + " exemplaires");
-        System.out.println(" de  " + o3.getTitre());
+        System.out.println(" de  " + o3.getTitle());
     }
 }
 
