@@ -3,11 +3,11 @@ package obj2;
 import java.util.Scanner;
 
 public class Tokens {
-    private static Scanner scanner = new Scanner(System.in);
+    private static Scanner input = new Scanner(System.in);
     public static void main(String[] args){
         String sentence;
-        System.out.println("Entrez une chaine :");
-        sentence = scanner.nextLine();
+        System.out.println("Write a sentence :");
+        sentence = input.nextLine();
         TokenizableString toToken = new TokenizableString(sentence);
         toToken.tokenize();
     }
@@ -21,8 +21,19 @@ class TokenizableString{
         this.content = content;
     }
 
-    private boolean nextToken(){
-        return false;
+    private boolean nextToken(String content){
+        int i = 0;
+        while(content.charAt(i) == ' ' && i < content.length()){
+          i++;
+        }
+
+        from = i;
+        while(content.charAt(i+1) != ' ' && i+1 < content.length()){
+            i++;
+        }
+        len = i;
+
+        return from != len;
     }
 
     public void tokenize(){}
