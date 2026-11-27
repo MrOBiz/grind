@@ -36,5 +36,13 @@ class TokenizableString{
         return from != len;
     }
 
-    public void tokenize(){}
+    public void tokenize(){
+        if(nextToken(content)) {
+            System.out.print("'");
+            for(int i = from; i <= len; i++) {
+                System.out.print(content.charAt(i));
+            }
+            System.out.print("'");
+        }
+    }
 }
