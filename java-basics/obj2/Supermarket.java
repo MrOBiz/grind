@@ -47,20 +47,20 @@ public class Supermarket {
         caisse1.scan(caddie1);
         caisse1.scan(caddie2);
         caisse2.scan(caddie3);
-        caisse1.calcTot();
-        caisse2.calcTot();
+        caisse1.printTot();
+        caisse2.printTot();
     }
 }
 
 class Article{
     private String name;
     private double price;
-    private boolean inStock;
+    private boolean solde;
 
     public Article(String name, double price, boolean inStock){
         this.name = name;
         this.price = price;
-        this.inStock = inStock;
+        this.solde = inStock;
     }
 
     public String getName(){
@@ -69,6 +69,10 @@ class Article{
 
     public double getPrice(){
         return price;
+    }
+
+    public boolean getSolde(){
+        return solde;
     }
 }
 
@@ -81,15 +85,19 @@ class CaddieItem {
         this.quantity = quantity;
     }
 
-    public void print(boolean sale){
-        if(sale) {
+    public Article getArt(){
+        return article;
+    }
+
+    public void print(){
+        if(article.getSolde()){
             System.out.println(article.getName() + ": " + article.getPrice()
                     + " x " + quantity + " = "
-                    + article.getPrice() * quantity * (1 / 2));
+                    + article.getPrice() * quantity * (1 / 2) + " CHF (50% off)");
         }else{
             System.out.println(article.getName() + ": " + article.getPrice()
                     + " x " + quantity + " = "
-                    + article.getPrice() * quantity);
+                    + article.getPrice() * quantity + " CHF");
         }
     }
 }
@@ -100,6 +108,10 @@ class Caddie{
     public boolean fill(Article art, int quantity){
         content.add(new CaddieItem(art, quantity));
         return true;
+    }
+
+    public ArrayList<CaddieItem> getContent(){
+        return content;
     }
 }
 
@@ -112,12 +124,26 @@ class Caisse{
         this.cash = cash;
     }
 
-    public boolean scan(Caddie cad){
-        return true;
+    public void scan(Caddie cad){
+        double toPay = 0.0;
+
+        System.out.println("===============================");
+        System.out.println("27/10/14");
+        System.out.println("Counter n " + num + "\n");
+
+        for(CaddieItem elt : cad.getContent()){
+            elt.print();
+            cash += elt.getArt().getPrice();
+            toPay += elt.getArt().getPrice();
+        }
+
+        System.out.println("Total: " + toPay + " CHF");
+        System.out.println("===============================");
     }
 
-    public double calcTot(){
-        return cash;
+    public void printTot(){
+        System.out.println("Counter n " + num + " made "
+                            + cash + "CHF today.");
     }
 
 }
