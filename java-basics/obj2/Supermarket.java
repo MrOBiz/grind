@@ -59,10 +59,10 @@ class Article{
     private double price;
     private boolean solde;
 
-    public Article(String name, double price, boolean inStock){
+    public Article(String name, double price, boolean solde){
         this.name = name;
         this.price = price;
-        this.solde = inStock;
+        this.solde = solde;
     }
 
     public String getName(){
@@ -87,14 +87,6 @@ class CaddieItem {
         this.quantity = quantity;
     }
 
-    public Article getArt(){
-        return article;
-    }
-
-    public int getQuantity(){
-        return quantity;
-    }
-
     public double print(){
         if(article.getSolde()){
             System.out.println(article.getName() + ": " + article.getPrice()
@@ -113,9 +105,8 @@ class CaddieItem {
 class Caddie{
     private ArrayList<CaddieItem> content = new ArrayList<>();
 
-    public boolean fill(Article art, int quantity){
+    public void fill(Article art, int quantity){
         content.add(new CaddieItem(art, quantity));
-        return true;
     }
 
     public ArrayList<CaddieItem> getContent(){
