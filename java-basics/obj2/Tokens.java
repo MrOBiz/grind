@@ -39,10 +39,12 @@ class TokenizableString{
     public void tokenize(){
         if(nextToken(content)) {
             System.out.print("'");
-            for(int i = from; i <= len; i++) {
-                System.out.print(content.charAt(i));
+            for(int j = from; j <= len; j++) {
+                System.out.print(content.charAt(j));
             }
-            System.out.print("'");
+            System.out.print("'\n");
+            content = content.substring(len+1);
+            tokenize();
         }
     }
 }
