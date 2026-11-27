@@ -39,7 +39,7 @@ class Oeuvre {
         return auteur.getName();
     }
 
-    public String getLangue(){
+    public String getLanguage(){
         return language;
     }
 
@@ -50,13 +50,30 @@ class Oeuvre {
 }
 
 class Exemplaire{
-    private String title, language;
-    private Auteur auteur;
+    private Oeuvre oeuvre;
 
     public Exemplaire(Oeuvre oeuvre){
-        this.title = oeuvre.getTitle();
-        this.language = oeuvre.getLangue();
-        this.auteur = oeuvre.getAuteur();
+        this.oeuvre = oeuvre;
+
+        System.out.println(oeuvre.getTitle() + ", " + oeuvre.getAuteur()
+                + ", in " + oeuvre.getLanguage());
+    }
+
+    public Exemplaire(Exemplaire other){
+        this.oeuvre = other.oeuvre;
+
+        System.out.println("Copy of --> " + oeuvre.getTitle()
+                        + ", " + oeuvre.getAuteur()
+                        + ", in " + oeuvre.getLanguage() + "\n");
+    }
+
+    public Oeuvre getOeuvre(){
+        return oeuvre;
+    }
+
+    public void print(){
+        System.out.print("An exemplar of --> ");
+        oeuvre.print();
     }
 }
 
