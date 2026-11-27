@@ -91,15 +91,21 @@ class CaddieItem {
         return article;
     }
 
-    public void print(){
+    public int getQuantity(){
+        return quantity;
+    }
+
+    public double print(){
         if(article.getSolde()){
             System.out.println(article.getName() + ": " + article.getPrice()
                     + " x " + quantity + " = "
                     + article.getPrice() * quantity * 0.5 + " CHF (50% off)");
+            return article.getPrice() * quantity * 0.5;
         }else{
             System.out.println(article.getName() + ": " + article.getPrice()
                     + " x " + quantity + " = "
                     + article.getPrice() * quantity + " CHF");
+            return article.getPrice() * quantity;
         }
     }
 }
@@ -138,9 +144,9 @@ class Caisse{
         System.out.println("Counter n " + num + "\n");
 
         for(CaddieItem elt : cad.getContent()){
-            elt.print();
-            cash += elt.getArt().getPrice();
-            toPay += elt.getArt().getPrice();
+            double add = elt.print();
+            cash += add;
+            toPay += add;
         }
 
         System.out.println("Total: " + toPay + " CHF");
