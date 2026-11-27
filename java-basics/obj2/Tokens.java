@@ -33,6 +33,8 @@ class TokenizableString{
         }
         len = i;
 
+        if(i+1 == content.length()-1) len = i+1;
+
         return from != len;
     }
 
@@ -40,11 +42,13 @@ class TokenizableString{
         if(nextToken(content)) {
             System.out.print("'");
             for(int j = from; j <= len; j++) {
-                System.out.print(content.charAt(j));
+                if(content.charAt(j) != ' ') {
+                    System.out.print(content.charAt(j));
+                }
             }
             System.out.print("'\n");
             content = content.substring(len+1);
-            tokenize();
+            if(content.length()!=0) tokenize();
         }
     }
 }
