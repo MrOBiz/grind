@@ -80,11 +80,23 @@ class Exemplaire{
 
 
 public class Library {
+    private String name;
+
+    public Library(String name){
+        this.name = name;
+
+        System.out.println("The " + name + " library is open! \n");
+    }
+
+    public String getName(){
+        return name;
+    }
+
 
     public static void afficherExemplaires(ArrayList<Exemplaire> exemplaires) {
         for (Exemplaire exemplaire : exemplaires) {
             System.out.print("\t");
-            exemplaire.afficher();
+            exemplaire.print();
         }
     }
 
@@ -100,7 +112,7 @@ public class Library {
         Oeuvre o4 = new Oeuvre("Zazie dans le metro", a3, "francais");
         Oeuvre o5 = new Oeuvre("The count of Monte-Cristo", a2, "anglais");
 
-        Bibliotheque biblio = new Bibliotheque("municipale");
+        Library biblio = new Library("municipale");
         biblio.stocker(o1, 2);
         biblio.stocker(o2);
         biblio.stocker(o3, 3);
