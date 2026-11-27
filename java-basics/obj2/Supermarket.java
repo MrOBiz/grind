@@ -62,6 +62,14 @@ class Article{
         this.price = price;
         this.inStock = inStock;
     }
+
+    public String getName(){
+        return name;
+    }
+
+    public double getPrice(){
+        return price;
+    }
 }
 
 class CaddieItem {
@@ -71,6 +79,18 @@ class CaddieItem {
     public CaddieItem(Article article, int quantity) {
         this.article = article;
         this.quantity = quantity;
+    }
+
+    public void print(boolean sale){
+        if(sale) {
+            System.out.println(article.getName() + ": " + article.getPrice()
+                    + " x " + quantity + " = "
+                    + article.getPrice() * quantity * (1 / 2));
+        }else{
+            System.out.println(article.getName() + ": " + article.getPrice()
+                    + " x " + quantity + " = "
+                    + article.getPrice() * quantity);
+        }
     }
 }
 
